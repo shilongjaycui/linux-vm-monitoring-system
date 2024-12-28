@@ -2,11 +2,12 @@
 ## Goal:
 Learn enough about how Fluent Bit, Prometheus, and Grafana work with one another by collecting macOS metrics with Fluent Bit, writing them to Prometheus, and displaying them in Grafana.
 
-Here're the metrics we'd like to collect from the host macOS:
-- CPU utilization
-- memory utilization
-- network traffic
-- disk space utilization
+Here're the metrics we'd like to collect from the host macOS. According to Fluent Bit's [offical documentation on the Node Exporter Metrics input plugin](https://docs.fluentbit.io/manual/pipeline/inputs/node-exporter-metrics), we can collect the following:
+- `cpu`: Exposes CPU statistics.
+- `diskstats`: Exposes disk I/O statistics.
+- `meminfo`: Exposes memory statistics.
+- `netdev`: Exposes network interface statistics such as bytes transferred.
+- `uname`: Exposes system information as provided by the uname system call.
 
 ## Prerequisites:
 - macOS: Sequoia (Version 15.1.1)
@@ -25,4 +26,8 @@ Here're the metrics we'd like to collect from the host macOS:
    ```bash
    brew install fluent-bit
    ```
-4. 
+4. Make sure Fluent Bit successfully collects metrics by having it output metrics to the terminal:
+   ```bash
+   fluent-bit -c fluent-bit.dev.conf
+   ```
+5. 
