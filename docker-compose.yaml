@@ -9,6 +9,7 @@ services:
 
   prometheus:
     image: prom/prometheus
+    network_mode: host
     ports:
       - 9090:9090
     volumes:
