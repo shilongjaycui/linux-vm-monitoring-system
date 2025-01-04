@@ -30,4 +30,11 @@ Here're the metrics we'd like to collect from the host macOS. According to Fluen
    ```bash
    fluent-bit -c fluent-bit.dev.conf
    ```
-5. 
+5. Make sure we take metrics from Fluent Bit and expose them such that our Prometheus instance can scrape them:
+   ```bash
+   fluent-bit -c fluent-bit.prod.conf
+   ```
+   ```bash
+   curl http://127.0.0.1:2021/metrics
+   ```
+6. 
