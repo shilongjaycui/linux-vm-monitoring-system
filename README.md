@@ -1,8 +1,11 @@
-# `macos-monitoring-system`
+# `linux-vm-monitoring-system`
 ## Goal:
-Learn enough about how Fluent Bit, Prometheus, and Grafana work with one another by collecting macOS metrics with Fluent Bit, writing them to Prometheus, and displaying them in Grafana.
+Gain observability into a Linux virtual machine (VM) by
+1. collecting its metrics with [Fluent Bit](https://fluentbit.io/)
+2. writing them to [Prometheus](https://prometheus.io/)
+3. displaying them in [Grafana](https://grafana.com/).
 
-Here're the metrics we'd like to collect from the host macOS. According to Fluent Bit's [offical documentation on the Node Exporter Metrics input plugin](https://docs.fluentbit.io/manual/pipeline/inputs/node-exporter-metrics), we can collect the following:
+Here're the metrics we'd like to collect from the Linux machine. According to Fluent Bit's [offical documentation on the Node Exporter Metrics input plugin](https://docs.fluentbit.io/manual/pipeline/inputs/node-exporter-metrics), we can collect the following:
 - `cpu`: Exposes CPU statistics.
 - `diskstats`: Exposes disk I/O statistics.
 - `meminfo`: Exposes memory statistics.
@@ -16,25 +19,10 @@ Here're the metrics we'd like to collect from the host macOS. According to Fluen
 ## Setup Guide
 1. Clone this GitHub repository:
    ```bash
-   git clone git@github.com:shilongjaycui/macos-monitoring-system.git
+   git clone git@github.com:shilongjaycui/linux-vm-monitoring-system.git
    ```
 2. Navigate into the cloned repository:
    ```bash
-   cd macos-monitoring-system
+   cd linux-vm-monitoring-system
    ```
-3. Install Fluent Bit on macOS using homebrew:
-   ```bash
-   brew install fluent-bit
-   ```
-4. Make sure Fluent Bit successfully collects metrics by having it output metrics to the terminal:
-   ```bash
-   fluent-bit -c fluent-bit.dev.conf
-   ```
-5. Make sure we take metrics from Fluent Bit and expose them such that our Prometheus instance can scrape them:
-   ```bash
-   fluent-bit -c fluent-bit.prod.conf
-   ```
-   ```bash
-   curl http://127.0.0.1:2021/metrics
-   ```
-6. 
+3. 
