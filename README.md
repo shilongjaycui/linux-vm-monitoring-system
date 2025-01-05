@@ -1,4 +1,4 @@
-# `linux-vm-monitoring-system`
+# Linux VM Monitoring System
 ## Goal:
 Gain observability into a Linux virtual machine (VM) by
 1. collecting its metrics with [Fluent Bit](https://fluentbit.io/)
@@ -12,11 +12,14 @@ Here're the metrics we'd like to collect from the Linux machine. According to Fl
 - `netdev`: Exposes network interface statistics such as bytes transferred.
 - `uname`: Exposes system information as provided by the uname system call.
 
+## Design (subject to change):
+![Linux VM Monitoring System Design](./linux_vm_monitoring_system_design.png)
+
 ## Prerequisites:
 - macOS: Sequoia (Version 15.1.1)
 - Docker Desktop (Version 4.37.1)
 
-## Setup Guide
+## Setup instructions:
 1. Clone this GitHub repository:
    ```bash
    git clone git@github.com:shilongjaycui/linux-vm-monitoring-system.git
@@ -26,3 +29,7 @@ Here're the metrics we'd like to collect from the Linux machine. According to Fl
    cd linux-vm-monitoring-system
    ```
 3. 
+
+## Next steps:
+- Create the VMs using Terraform (infrastructure as code)
+- Make the monitoring system usable in both AWS and GCP
